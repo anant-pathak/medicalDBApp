@@ -11,3 +11,5 @@ def create_tables(connectionObj):
         except:
             print("Table already exists")
             continue
+    connectionObj.commit()
+    cursor.close()

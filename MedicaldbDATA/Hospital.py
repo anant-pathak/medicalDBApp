@@ -10,7 +10,7 @@ def hospital_data_fetch():
         hospitals_data = []
 
         for number, row in enumerate(cin, 0):
-            print(number)
+            # print(number)
             list_data = []
             list_data.append(row[0])
             list_data.append(row[1])
@@ -24,14 +24,18 @@ def hospital_data_fetch():
         else:
             print("break encountered")
         del hospitals_data[0]
-        for list_h in hospitals_data:
-            print(list_h)
+        # for list_h in hospitals_data:
+        #     print(list_h)
         return hospitals_data
 
 def hospital_data_populate(connectionObj, hospitals_data):
     cursor = connectionObj.cursor()
     for list_h in hospitals_data:
-        cursor.execute("INSERT INTO hospital VALUES(%s,%s,%s,%s,%s,%s)",(list_h[0],list_h[1],list_h[2],list_h[3],list_h[4],list_h[5]))
+        try:
+            cursor.execute("INSERT INTO hospital VALUES(%s,%s,%s,%s,%s,%s)",(list_h[0],list_h[1],list_h[2],list_h[3],list_h[4],list_h[5]))
+        except:
+            print("may b the data already exists")
+            continue
     connectionObj.commit()
     cursor.close()
 
