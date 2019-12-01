@@ -1,13 +1,14 @@
 import csv
 #deactivate
-#import psycopg2
-from pg import DB
+import psycopg2 as p
+# from pg import DB
+import MedicaldbDATA.Hospital as Hospital
 
 
-
+Hospital.hospital_db_populate()
 
 def hello():
-   # psycopg2.connect()
+    psycopg2.connect()
     # with open("/Users/anantpathak/OneDrive/PortlandStateUniversity/Year1/Sem1/Intro To DatabaseManagement/Project/Data/TablesRaw/Hospital/CSV-plain/Hospital_General_Information.csv", "rt") as fin:
     #     cin = csv.reader(fin)
     #     hospitals_data = []
