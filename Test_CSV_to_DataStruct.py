@@ -8,6 +8,7 @@ import  MedicaldbDATA.CreateTables as CreateTables
 import MedicaldbDATA.Hospital_Specialization as Hospital_Specialization
 import MedicaldbDATA.Location as Location
 import MedicaldbDATA.hospital_location_rel as Hospital_Location_Rel
+import MedicaldbDATA.Doctor as Doctor
 
 
 
@@ -37,6 +38,11 @@ def master_fn():
     dataList.clear()
     dataList = Hospital_Location_Rel.hospital_location_rel_data_fetch()
     Hospital_Location_Rel.hospital_location_rel_data_populate(DbObj.connectionObj, dataList)
+    #For table Doctor and Hospital_Doctor_rel
+    dataList.clear()
+    dataList = Doctor.doctor_data_fetch(31318)
+    Doctor.doctor_data_populate(DbObj.connectionObj, dataList)
+
     return DbObj
 
 if __name__ == "__main__":

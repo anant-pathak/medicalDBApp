@@ -33,7 +33,7 @@ def hospital_location_rel_data_populate(connectionObj, hospitals_data):
     cursor = connectionObj.cursor()
     for list_h in hospitals_data:
         try:
-            cursor.execute("INSERT INTO hospital_location_rel VALUES(%s,%s,%s,%s,%s, %s)",
+            cursor.execute("INSERT INTO hospital_location_rel VALUES(%s,%s,%s,%s,%s,%s)",
                            (list_h[0], list_h[1], list_h[2], list_h[3], list_h[4], list_h[5]))
         except:
             print("may b the data already exists")
