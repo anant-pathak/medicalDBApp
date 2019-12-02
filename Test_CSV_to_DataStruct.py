@@ -23,9 +23,10 @@ def master_fn():
     #For table Hospital fetch data from CSV and put it in our medicalDb database in table hospital
     hospitalDataList = Hospital.hospital_data_fetch()
     Hospital.hospital_data_populate(DbObj.connectionObj, hospitalDataList)
+    return DbObj
 
 if __name__ == "__main__":
-    master_fn()
+   DbObj = master_fn()
         
     
 
