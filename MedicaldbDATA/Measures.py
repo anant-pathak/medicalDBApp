@@ -1,11 +1,8 @@
 import psycopg2
 import csv
 
-
-def hospital_data_fetch():
-    with open(
-            "/Users/anantpathak/OneDrive/PortlandStateUniversity/Year1/Sem1/Intro To DatabaseManagement/Project/Data/TablesRaw/Hospital/CSV-plain/Hospital_General_Information.csv",
-            "rt") as fin:
+def measures_data_fetch():
+    with open("/Users/anantpathak/OneDrive/PortlandStateUniversity/Year1/Sem1/Intro To DatabaseManagement/Project/Data/TablesRaw/Measure/AllMeasures/Measure_Dates.csv", "rt") as fin:
         cin = csv.reader(fin)
         hospitals_data = []
 
@@ -19,7 +16,7 @@ def hospital_data_fetch():
             list_data.append(row[12])
             list_data.append(row[9])
             hospitals_data.append(list_data)
-            if number == 200:
+            if number == 10:
                 break
         else:
             print("break encountered")
@@ -39,4 +36,3 @@ def hospital_data_populate(connectionObj, hospitals_data):
     connectionObj.commit()
     cursor.close()
 
-# hospital_db_populate()
