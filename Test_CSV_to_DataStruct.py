@@ -4,8 +4,8 @@ import psycopg2 as p
 # from pg import DB
 import MedicaldbDATA.Hospital as Hospital
 import MedicaldbDATA.Connection as Connection
-import  MedicaldbDATA.CreateTables as CreateTables
-import MedicaldbDATA.Hospital_Specialization as Hospital_Specialization
+import MedicaldbDATA.CreateTables as CreateTables
+import MedicaldbDATA.DiseaseType as DiseaseType
 import MedicaldbDATA.Location as Location
 import MedicaldbDATA.hospital_location_rel as Hospital_Location_Rel
 import MedicaldbDATA.Doctor as Doctor
@@ -40,8 +40,12 @@ def master_fn():
     Hospital_Location_Rel.hospital_location_rel_data_populate(DbObj.connectionObj, dataList)
     #For table Doctor and Hospital_Doctor_rel
     dataList.clear()
-    dataList = Doctor.doctor_data_fetch(31318)
-    Doctor.doctor_data_populate(DbObj.connectionObj, dataList)
+   # dataList = Doctor.doctor_data_fetch(31318)  #This fun can take a minute or two to process.
+   # Doctor.doctor_data_populate(DbObj.connectionObj, dataList)
+    # For table: Disease_type and hospital_disease_visitors_rel
+    dataList = []
+    dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
+    DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
 
     return DbObj
 
