@@ -9,7 +9,7 @@ import MedicaldbDATA.DiseaseType as DiseaseType
 import MedicaldbDATA.Location as Location
 import MedicaldbDATA.hospital_location_rel as Hospital_Location_Rel
 import MedicaldbDATA.Doctor as Doctor
-
+import queries.AllQueries as AllQueries
 
 
 def master_fn():
@@ -44,13 +44,20 @@ def master_fn():
    # Doctor.doctor_data_populate(DbObj.connectionObj, dataList)
     # For table: Disease_type and hospital_disease_visitors_rel
     dataList = []
-    dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
-    DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
+    # dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
+    # DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
 
     return DbObj
 
+
+
 if __name__ == "__main__":
-   DbObj = master_fn()
+    DbObj = master_fn()
+    AllQueries.choice(DbObj.connectionObj)
+
+
+
+
         
     
 
