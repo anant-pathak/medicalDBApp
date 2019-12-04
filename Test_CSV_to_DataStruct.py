@@ -45,17 +45,17 @@ def master_fn():
    # dataList = Doctor.doctor_data_fetch(31318)  #This fun can take a minute or two to process.
    # Doctor.doctor_data_populate(DbObj.connectionObj, dataList)
     # For table: Disease_type and hospital_disease_visitors_rel
-    dataList = []
-    dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
-    DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
-    #For table: measure
-    dataList = []
-    dataList = Measure.measures_data_fetch()
-    Measure.measures_data_populate(DbObj.connectionObj, dataList)
-    # For table:_measure_hospital_rel
-    dataList = []
-    dataList = MeasurePaymentHospital.measure_hospital_rel_data_fetch(31318)
-    MeasurePaymentHospital.measure_hospital_rel_data_populate(DbObj.connectionObj, dataList)
+    # dataList = []
+    # dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
+    # DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
+    # #For table: measure
+    # dataList = []
+    # dataList = Measure.measures_data_fetch()
+    # Measure.measures_data_populate(DbObj.connectionObj, dataList)
+    # # For table:_measure_hospital_rel
+    # dataList = []
+    # dataList = MeasurePaymentHospital.measure_hospital_rel_data_fetch(31318)
+    # MeasurePaymentHospital.measure_hospital_rel_data_populate(DbObj.connectionObj, dataList)
 
     return DbObj
 

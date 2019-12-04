@@ -7,6 +7,7 @@ import psycopg2
 def choice(connectionObj):
 
     while True:
+        print("Example Zip: 99508 , HospitalID: 30023 , Hospital name: PAGE HOSPITAL")
         choice_text = {
             1: "In which state a particular hospital is located?",
             2: "Which hospitals are specialised in particular department",
