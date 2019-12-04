@@ -50,7 +50,7 @@ def DiseaseType_and_patientsVisited_data_populate(connectionObj, hospitals_data)
         for index in range(9): #bcz diseases: 3-11 = 9
             try:
                 cursor.execute("INSERT INTO hospital_disease_visitors_rel VALUES(%s, %s, %s)",
-                               (hospital_id, disease_types[index], list_h[index]))
+                               (hospital_id, disease_types[index], list_h[index+1]))
                 connectionObj.commit()
             except Exception as e:
                 print('Error! Code: {c}, Message, {m}'.format(c=type(e).__name__, m=str(e)))

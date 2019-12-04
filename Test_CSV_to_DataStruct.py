@@ -10,6 +10,8 @@ import MedicaldbDATA.Location as Location
 import MedicaldbDATA.hospital_location_rel as Hospital_Location_Rel
 import MedicaldbDATA.Doctor as Doctor
 import queries.AllQueries as AllQueries
+import MedicaldbDATA.Measures as Measure
+import MedicaldbDATA.MeasuresPaymentHospital as MeasurePaymentHospital
 
 
 def master_fn():
@@ -25,27 +27,35 @@ def master_fn():
     #create all the tables:
     # CreateTables.create_tables(DbObj.connectionObj)
     #For table Hospital fetch data from CSV and put it in our medicalDb database in table hospital
-    dataList = Hospital.hospital_data_fetch()
-    Hospital.hospital_data_populate(DbObj.connectionObj, dataList)
+    # dataList = Hospital.hospital_data_fetch()
+    # Hospital.hospital_data_populate(DbObj.connectionObj, dataList)
     #For table: hospital_specialization
-    dataList = ["Gastrointestinal","Eye","Nervous System", "Musculoskeletal", "Skin", "Genitourinary", "Cardiovascular", "Respiratory"]
+    # dataList = ["Gastrointestinal","Eye","Nervous System", "Musculoskeletal", "Skin", "Genitourinary", "Cardiovascular", "Respiratory"]
     # Hospital_Specialization.Hospital_Specialization_data_populate(DbObj.connectionObj, dataList)
     #For table location.
-    dataList.clear()
-    dataList = Location.location_data_fetch()
-    Location.location_data_populate(DbObj.connectionObj, dataList)
+    # dataList.clear()
+    # dataList = Location.location_data_fetch()
+    # Location.location_data_populate(DbObj.connectionObj, dataList)
     #For table Hospital_Location_Rel
-    dataList.clear()
-    dataList = Hospital_Location_Rel.hospital_location_rel_data_fetch()
-    Hospital_Location_Rel.hospital_location_rel_data_populate(DbObj.connectionObj, dataList)
+    # dataList.clear()
+    # dataList = Hospital_Location_Rel.hospital_location_rel_data_fetch()
+    # Hospital_Location_Rel.hospital_location_rel_data_populate(DbObj.connectionObj, dataList)
     #For table Doctor and Hospital_Doctor_rel
-    dataList.clear()
+    # dataList.clear()
    # dataList = Doctor.doctor_data_fetch(31318)  #This fun can take a minute or two to process.
    # Doctor.doctor_data_populate(DbObj.connectionObj, dataList)
     # For table: Disease_type and hospital_disease_visitors_rel
     dataList = []
-    # dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
-    # DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
+    dataList = DiseaseType.DiseaseType_and_patientsVisited_data_fetch(31318)
+    DiseaseType.DiseaseType_and_patientsVisited_data_populate(DbObj.connectionObj, dataList)
+    #For table: measure
+    dataList = []
+    dataList = Measure.measures_data_fetch()
+    Measure.measures_data_populate(DbObj.connectionObj, dataList)
+    # For table:_measure_hospital_rel
+    dataList = []
+    dataList = MeasurePaymentHospital.measure_hospital_rel_data_fetch(31318)
+    MeasurePaymentHospital.measure_hospital_rel_data_populate(DbObj.connectionObj, dataList)
 
     return DbObj
 
