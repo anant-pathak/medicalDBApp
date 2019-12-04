@@ -8,6 +8,11 @@ def measures_data_fetch():
 
         for number, row in enumerate(cin, 0):
             # print(number)
+            row[2] = row[2].strip('$')
+            try:
+                row[2] = int(float(row[2]))
+            except ValueError:
+                pass
             list_data = []
             list_data.append(row[0])
             list_data.append(row[1])

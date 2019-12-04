@@ -11,6 +11,14 @@ def measure_hospital_rel_data_fetch(last_hospital_id):
             hospitalID = row[0]
             if hospitalID.isnumeric() and int(hospitalID) > last_hospital_id:
                 break
+
+            try:
+                row[12] = row[12].strip('$')
+                row[12] = row[12].replace(",","")
+                row[12] = int(float(row[12]))
+            except ValueError:
+                row[12] = 0
+                pass
             list_data = []
             list_data.append(row[0])
             list_data.append(row[8])

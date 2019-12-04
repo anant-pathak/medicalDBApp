@@ -9,7 +9,8 @@ def create_tables(connectionObj):
         "CREATE TABLE hospital_doctor_rel (hID INT REFERENCES hospital(hID), dID INT REFERENCES doctor(dID), dept VARCHAR(100), PRIMARY KEY (hID, dID));",
         "CREATE TABLE disease_type (dName VARCHAR(100) PRIMARY KEY);",
         "CREATE TABLE hospital_disease_visitors_rel (hId INT REFERENCES hospital(hid), dName VARCHAR(100) REFERENCES disease_type(dName), visitors_count INT, PRIMARY KEY (hId, dName));",
-        "CREATE TABLE measure_hospital_rel (hid INT REFERENCES hospital(hid),measure_id VARCHAR(200) REFERENCES measure(measure_id),payment VARCHAR(300),payment_category TEXT,PRIMARY KEY(hid, measure_id));",
+        "CREATE TABLE measure (measure_id VARCHAR(200) PRIMARY KEY, measure_name text, national_rate INT);",
+        "CREATE TABLE measure_hospital_rel (hid INT REFERENCES hospital(hid),measure_id VARCHAR(200) REFERENCES measure(measure_id),payment INT,payment_category TEXT,PRIMARY KEY(hid, measure_id));",
 
 
     ]
