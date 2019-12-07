@@ -19,7 +19,7 @@ def hospital_data_fetch():
             list_data.append(row[12])
             list_data.append(row[9])
             hospitals_data.append(list_data)
-            if number == 10:
+            if number == 200:
                 break
         else:
             print("break encountered")
